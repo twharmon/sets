@@ -1,5 +1,5 @@
 # Sets
-Generic sets in Go.
+Generic sets for Go.
 
 ![](https://github.com/twharmon/sets/workflows/Test/badge.svg) [![](https://goreportcard.com/badge/github.com/twharmon/sets)](https://goreportcard.com/report/github.com/twharmon/sets) [![codecov](https://codecov.io/gh/twharmon/sets/branch/main/graph/badge.svg?token=K0P59TPRAL)](https://codecov.io/gh/twharmon/sets)
 
