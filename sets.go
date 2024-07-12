@@ -1,16 +1,12 @@
 package sets
 
-type Ordered interface {
-	int | int32 | int16 | int8 | int64 | uint | uint32 | uint16 | uint8 | uint64 | float32 | float64 | string
-}
-
 // Set holds a set of values.
-type Set[T Ordered] struct {
+type Set[T comparable] struct {
 	m map[T]struct{}
 }
 
 // New creates a new Set with the given initial values.
-func New[T Ordered](v ...T) *Set[T] {
+func New[T comparable](v ...T) *Set[T] {
 	s := Set[T]{
 		m: make(map[T]struct{}),
 	}
@@ -71,7 +67,7 @@ func (s *Set[T]) Merge(v ...*Set[T]) {
 
 // Union returns a new Set with all the values found in any of the
 // given Sets.
-func Union[T Ordered](v ...*Set[T]) *Set[T] {
+func Union[T comparable](v ...*Set[T]) *Set[T] {
 	s := New[T]()
 	for i := range v {
 		s.Merge(v[i])
@@ -81,7 +77,7 @@ func Union[T Ordered](v ...*Set[T]) *Set[T] {
 
 // Intersection returns a new Set with the values found in all of the
 // given Sets.
-func Intersection[T Ordered](v ...*Set[T]) *Set[T] {
+func Intersection[T comparable](v ...*Set[T]) *Set[T] {
 	s := New[T]()
 	if len(v) == 0 {
 		return s
